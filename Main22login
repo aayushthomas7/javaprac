@@ -1,0 +1,68 @@
+import java.applet.*;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+public class LoginApplet extends Applet implements ActionListener {
+
+    Label userLabel, passLabel;
+
+    TextField userField;
+
+    JPasswordField passField;
+
+    Button submitButton;
+
+    String username, password;
+
+    public void init() {
+
+        setLayout(new GridLayout(3, 2));
+
+        userLabel = new Label("Username:");
+
+        passLabel = new Label("Password:");
+
+        userField = new TextField(30);
+
+        passField = new JPasswordField(30);
+
+        submitButton = new Button("Submit");
+
+        add(userLabel);
+
+        add(userField);
+
+        add(passLabel);
+
+        add(passField);
+
+        add(submitButton);
+
+        submitButton.addActionListener(this);
+
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+
+        username = userField.getText();
+
+        char[] input = passField.getPassword();
+
+        password = new String(input);
+
+        if (username.equals("admin") && password.equals("1234")) {
+
+            showStatus("Login successful!");
+
+        } else {
+
+            showStatus("Invalid username or password. Please try again.");
+
+        }
+
+    }
+
+}
+
