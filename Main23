@@ -1,0 +1,76 @@
+import java.applet.*;
+
+import java.awt.*;
+
+import java.awt.event.*;
+
+public class StudentRegistrationApplet extends Applet implements ActionListener {
+
+    Label nameLabel, rollNoLabel, courseLabel, emailLabel;
+
+    TextField nameField, rollNoField, courseField, emailField;
+
+    Button submitButton;
+
+    String studentName, studentRollNo, studentCourse, studentEmail;
+
+    public void init() {
+
+        setLayout(new GridLayout(5, 2));
+
+        nameLabel = new Label("Name:");
+
+        rollNoLabel = new Label("Roll No:");
+
+        courseLabel = new Label("Course:");
+
+        emailLabel = new Label("Email:");
+
+        nameField = new TextField(30);
+
+        rollNoField = new TextField(30);
+
+        courseField = new TextField(30);
+
+        emailField = new TextField(30);
+
+        submitButton = new Button("Submit");
+
+        add(nameLabel);
+
+        add(nameField);
+
+        add(rollNoLabel);
+
+        add(rollNoField);
+
+        add(courseLabel);
+
+        add(courseField);
+
+        add(emailLabel);
+
+        add(emailField);
+
+        add(submitButton);
+
+        submitButton.addActionListener(this);
+
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+
+        studentName = nameField.getText();
+
+        studentRollNo = rollNoField.getText();
+
+        studentCourse = courseField.getText();
+
+        studentEmail = emailField.getText();
+
+        showStatus("Student registered successfully! Name: " + studentName + " Roll No: " + studentRollNo + " Course: " + studentCourse + " Email: " + studentEmail);
+
+    }
+
+}
+
